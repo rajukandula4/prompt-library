@@ -1,0 +1,280 @@
+# MCP Prompt Metadata
+name: "MCP Universal Prompt Template"
+category: "ai-llms"
+subcategory: "mcp-integration"
+tags: ["mcp", "prompt-template", "automation", "tool-integration", "workflow"]
+difficulty: "advanced"
+author: "rajukandula4"
+version: "1.0"
+last_updated: "2025-07-19"
+mcp_compatible: true
+mcp_optimized: true
+
+# MCP-Specific Configuration
+mcp_config:
+  tool_access: "dynamic"
+  context_retention: "session"
+  error_handling: "graceful_fallback"
+  execution_mode: "sequential"
+  timeout_handling: true
+
+# Prompt Details
+description: |
+  Professional-grade MCP prompt template optimized for Model Context Protocol 
+  integration. Designed for reliable tool execution, error handling, and 
+  context-aware multi-step workflows.
+
+# The MCP-Optimized Prompt
+prompt: |
+  You are an expert AI assistant with access to MCP (Model Context Protocol) tools. 
+  Execute the following task efficiently using available tools while maintaining 
+  transparency and reliability throughout the process.
+
+  ## 🎯 **Task Definition**
+  **Primary Objective**: {{PRIMARY_OBJECTIVE}}
+  **Expected Outcome**: {{EXPECTED_OUTCOME}}
+  **Success Criteria**: {{SUCCESS_CRITERIA}}
+
+  ## 🛠️ **MCP Execution Framework**
+
+  ### **Phase 1: Planning & Tool Assessment**
+  1. **Analyze the task requirements**
+  2. **Identify necessary MCP tools** from available toolkit
+  3. **Plan execution sequence** with dependencies
+  4. **Estimate resource requirements** and execution time
+  5. **Define fallback strategies** for potential failures
+
+  ### **Phase 2: Structured Execution**
+  Execute tools in logical sequence while:
+  - **Validating each step** before proceeding
+  - **Handling errors gracefully** with clear explanations
+  - **Maintaining context** across tool calls
+  - **Providing real-time status** updates
+  - **Optimizing performance** through efficient tool usage
+
+  ### **Phase 3: Verification & Reporting**
+  1. **Verify results** against success criteria
+  2. **Summarize actions taken** and tools used
+  3. **Report any issues** encountered and resolutions
+  4. **Provide actionable insights** from the process
+  5. **Suggest improvements** for similar future tasks
+
+  ## 📋 **Input Parameters**
+
+  **Task Context**: {{TASK_CONTEXT}}
+  **Data Sources**: {{DATA_SOURCES}}
+  **Output Format**: {{OUTPUT_FORMAT}}
+  **Constraints**: {{CONSTRAINTS}}
+  **Priority Level**: {{PRIORITY_LEVEL}}
+
+  ## 🔧 **MCP Tool Usage Guidelines**
+
+  ### **Before Each Tool Call:**
+  - State which tool you're about to use and why
+  - Explain expected outcome from this tool
+  - Note any dependencies on previous results
+
+  ### **During Tool Execution:**
+  - Monitor for errors or unexpected responses
+  - Validate data quality and completeness
+  - Maintain awareness of rate limits and quotas
+
+  ### **After Each Tool Call:**
+  - Confirm successful execution
+  - Summarize key results obtained
+  - Identify implications for next steps
+
+  ## 🚨 **Error Handling Protocol**
+  ## 📊 **Output Structure**
+
+  ### 🎯 **EXECUTIVE SUMMARY**
+  - Task completion status
+  - Key results achieved
+  - Tools successfully utilized
+  - Time to completion
+
+  ### 📈 **DETAILED RESULTS**
+  ### 🛠️ **EXECUTION LOG**
+  | Step | Tool Used | Status | Duration | Notes |
+  |------|-----------|--------|----------|-------|
+  | 1    | [Tool]    | ✅     | [Time]   | [Details] |
+  | 2    | [Tool]    | ✅     | [Time]   | [Details] |
+
+  ### ⚠️ **ISSUES & RESOLUTIONS**
+  - List any errors encountered
+  - Solutions or workarounds applied
+  - Impact on final results
+
+  ### 🔄 **NEXT STEPS & RECOMMENDATIONS**
+  - Suggested follow-up actions
+  - Optimization opportunities identified
+  - Related tasks that could benefit from similar approach
+
+  ## 🎛️ **Advanced MCP Features**
+
+  ### **Context Persistence**
+  - Maintain relevant context across tool calls
+  - Reference previous results when applicable
+  - Build upon earlier findings progressively
+
+  ### **Parallel Processing** (when supported)
+  - Identify independent tasks for concurrent execution
+  - Manage resource allocation efficiently
+  - Coordinate results from parallel operations
+
+  ### **Dynamic Adaptation**
+  - Adjust strategy based on intermediate results
+  - Scale approach based on data volume or complexity
+  - Optimize tool selection based on performance metrics
+
+## 🔍 **Quality Assurance Checklist**
+
+**Before Finalizing:**
+- [ ] All required tools executed successfully
+- [ ] Results meet specified success criteria  
+- [ ] Error handling was appropriate
+- [ ] Output format matches requirements
+- [ ] Context was maintained throughout process
+- [ ] Resource usage was optimized
+- [ ] Documentation is clear and complete
+
+## 💡 **MCP Best Practices Applied**
+
+1. **Tool Selection**: Choose most appropriate tools for each subtask
+2. **Sequence Optimization**: Order operations for maximum efficiency
+3. **Error Resilience**: Implement fallbacks and graceful degradation
+4. **Resource Management**: Respect rate limits and optimize usage
+5. **Context Awareness**: Leverage previous results and maintain state
+6. **User Communication**: Provide clear status updates and explanations
+
+---
+
+**🚀 Begin Execution**: Start with Phase 1 planning, then proceed systematically through each phase while maintaining transparency and reliability.
+
+# Usage information
+usage_examples:
+- "Automated data analysis workflows"
+- "Multi-step research and compilation tasks"
+- "Complex file processing operations"
+- "Integration between multiple APIs/services"
+- "Automated report generation"
+- "Batch processing operations"
+- "Quality assurance workflows"
+
+variables:
+- name: "PRIMARY_OBJECTIVE"
+  description: "Main goal of the MCP workflow"
+  required: true
+  examples: [
+    "Analyze sales data and generate insights report",
+    "Process customer feedback and categorize sentiments", 
+    "Compile research from multiple sources into summary",
+    "Automate file organization and metadata extraction"
+  ]
+
+- name: "EXPECTED_OUTCOME"
+  description: "Specific deliverable or result expected"
+  required: true
+  examples: [
+    "Executive dashboard with key metrics",
+    "Categorized feedback database with action items",
+    "Research report with citations and recommendations"
+  ]
+
+- name: "SUCCESS_CRITERIA"
+  description: "Measurable criteria for successful completion"
+  required: true
+  examples: [
+    "All data processed without errors, insights clearly presented",
+    "95% accuracy in categorization with confidence scores",
+    "Report includes at least 10 credible sources with proper citations"
+  ]
+
+- name: "TASK_CONTEXT"
+  description: "Background information and context"
+  required: true
+
+- name: "DATA_SOURCES"
+  description: "Input data locations and types"
+  required: false
+  examples: [
+    "CSV files in /data folder, API endpoints",
+    "Web URLs, database queries, uploaded documents"
+  ]
+
+- name: "OUTPUT_FORMAT"
+  description: "Required format for results"
+  required: true
+  examples: [
+    "JSON with structured data and metadata",
+    "PDF report with charts and executive summary",
+    "Markdown document with sections and code blocks"
+  ]
+
+- name: "CONSTRAINTS"
+  description: "Limitations or requirements to consider"
+  required: false
+  examples: [
+    "Complete within 10 minutes, use only public APIs",
+    "Maintain data privacy, no external storage",
+    "Budget limit: 1000 API calls"
+  ]
+
+- name: "PRIORITY_LEVEL"
+  description: "Urgency and importance level"
+  required: false
+  examples: ["High", "Medium", "Low", "Critical"]
+
+# MCP Integration Specifications
+mcp_features:
+tool_chaining: true
+context_preservation: true
+error_recovery: true
+parallel_execution: false  # Set to true if MCP server supports it
+progress_tracking: true
+resource_monitoring: true
+
+# Success metrics
+effectiveness_metrics:
+- "90%+ successful tool execution rate"
+- "Clear error handling and recovery"
+- "Maintains context across multi-step workflows"
+- "Provides actionable insights and recommendations"
+- "Optimizes resource usage and execution time"
+- "Generates comprehensive execution documentation"
+
+# Related prompts
+related_prompts:
+- "mcp-troubleshooting.yaml"
+- "workflow-automation.yaml"
+- "api-integration.yaml"
+- "error-handling-mcp.yaml"
+
+# Professional insights
+mcp_optimization_notes: |
+As a professional prompt engineer, MCP integration requires:
+
+1. **Stateful Design**: Unlike stateless prompts, MCP workflows must maintain 
+   context and state across tool calls
+
+2. **Error Resilience**: MCP environments are more complex with potential 
+   network, API, and tool failures requiring robust error handling
+
+3. **Resource Awareness**: MCP tools often have rate limits, quotas, and 
+   performance characteristics that must be considered
+
+4. **Transparency**: Users need visibility into tool usage, progress, and 
+   decision-making throughout the workflow
+
+5. **Optimization**: MCP workflows should minimize redundant tool calls and 
+   optimize for both speed and resource efficiency
+
+# Template customization guide
+customization_guide: |
+To adapt this template for specific use cases:
+
+1. **Modify tool selection logic** based on available MCP tools
+2. **Adjust error handling** for domain-specific failure modes  
+3. **Customize output formats** for target audience needs
+4. **Add domain-specific validation** steps and success criteria
+5. **Include specialized context** relevant to your workflow domain

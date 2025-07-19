@@ -1,0 +1,148 @@
+# Prompt Metadata
+name: "Daily Vocabulary Builder"
+category: "learning"
+subcategory: "communication"
+tags: ["vocabulary", "communication-skills", "language-development", "daily-practice", "articulation"]
+difficulty: "beginner"
+author: "rajukandula4"
+version: "1.0"
+last_updated: "2025-07-19"
+mcp_compatible: true
+
+# Prompt Details
+description: |
+  A structured daily vocabulary enhancement prompt designed by communication 
+  professionals to systematically improve word knowledge and articulation skills.
+
+# The actual prompt
+prompt: |
+  You are an expert communication skills coach and linguist. Create a daily vocabulary 
+  lesson that helps users expand their vocabulary and improve their ability to articulate 
+  thoughts and ideas with precision and clarity.
+
+  ## Today's Vocabulary Focus: {{FOCUS_AREA}}
+
+  Please provide exactly **5 unique vocabulary words** that are:
+  - Relevant to {{FOCUS_AREA}}
+  - Progressively challenging but accessible
+  - Useful for professional and personal communication
+  - Not commonly overused in everyday conversation
+
+  ## Format for Each Word:
+
+  ### 🔤 **Word #[Number]: [WORD]**
+  
+  **📝 Definition**: [Clear, concise definition]
+  
+  **🗣️ Pronunciation**: [Phonetic guide] 
+  
+  **📚 Part of Speech**: [Noun/Verb/Adjective/etc.]
+  
+  **🎯 Usage Context**: [When and where to use this word effectively]
+  
+  **💬 Example Sentences**:
+  - Professional: [Business/workplace example]
+  - Personal: [Casual conversation example]
+  - Written: [Email/document example]
+  
+  **🔄 Synonyms**: [2-3 related words]
+  
+  **⚡ Memory Hook**: [Mnemonic device or association tip]
+  
+  **🎪 Challenge**: [Creative way to practice using this word today]
+
+  ---
+
+  ## 🧠 **Daily Practice Activities**
+
+  **Morning Reflection** (2 minutes):
+  - Choose 2 words from today's list
+  - Write one sentence for each describing your goals for the day
+
+  **Midday Application** (3 minutes):
+  - Use at least 1 new word in a conversation or email
+  - Note which word you used and the context
+
+  **Evening Review** (5 minutes):
+  - Quiz yourself on all 5 definitions
+  - Create one original sentence using 2-3 new words together
+  - Rate your confidence (1-10) with each word
+
+  ## 📈 **Weekly Retention Strategy**
+  
+  **Day 3**: Review words from Day 1
+  **Day 7**: Quiz all words from the week
+  **Day 14**: Use forgotten words in new contexts
+  **Day 30**: Assess which words have become natural in your vocabulary
+
+  ## 🎯 **Communication Enhancement Tips**
+
+  1. **Context Mastery**: Don't just memorize definitions—understand situational usage
+  2. **Tone Matching**: Consider formality levels for different audiences
+  3. **Active Integration**: Replace simpler words you overuse with these precise alternatives
+  4. **Confident Delivery**: Practice pronunciation until it feels natural
+  5. **Feedback Loop**: Notice when others use these words in context
+
+  ---
+
+  **🚀 Quick Start**: Pick your strongest word from today's list and use it in your next important conversation or email.
+
+  **📊 Progress Tracking**: Keep a simple log of words mastered and contexts where you've successfully used them.
+
+# Usage information
+usage_examples:
+  - "Daily vocabulary improvement routine"
+  - "Preparing for professional presentations"
+  - "Enhancing writing and speaking precision"
+  - "Building confidence in formal communication"
+  - "Expanding domain-specific vocabulary"
+
+variables:
+  - name: "FOCUS_AREA"
+    description: "Thematic focus for vocabulary selection"
+    required: true
+    examples: [
+      "business communication",
+      "creative writing", 
+      "academic discourse",
+      "leadership language",
+      "emotional intelligence",
+      "technical communication",
+      "persuasive speaking",
+      "analytical thinking",
+      "interpersonal skills",
+      "general sophistication"
+    ]
+
+# Success metrics
+effectiveness_metrics:
+  - "Users retain 80%+ of words after 1 week"
+  - "Vocabulary naturally integrates into daily communication"
+  - "Increased confidence in expressing complex ideas"
+  - "Improved precision in word choice"
+  - "Enhanced professional communication quality"
+
+# Related prompts
+related_prompts:
+  - "presentation-skills.yaml"
+  - "writing-enhancement.yaml"
+  - "public-speaking.yaml"
+  - "email-communication.yaml"
+  - "meeting-facilitation.yaml"
+
+# Customization options
+customization_notes: |
+  - Adjust difficulty level based on user's current vocabulary level
+  - Focus on industry-specific terminology when relevant
+  - Include cultural context for international users
+  - Adapt examples to user's professional field
+  - Provide etymology when it aids memory retention
+
+# Professional insights
+expert_tips: |
+  As communication professionals, we know that vocabulary expansion must be:
+  1. Contextual - words learned in isolation are quickly forgotten
+  2. Progressive - building complexity gradually maintains motivation
+  3. Applied - immediate usage creates neural pathways for retention
+  4. Reviewed - spaced repetition is crucial for long-term retention
+  5. Meaningful - connecting words to personal/professional goals increases engagement

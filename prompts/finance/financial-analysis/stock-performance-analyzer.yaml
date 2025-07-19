@@ -1,0 +1,134 @@
+# Prompt Metadata
+name: "NYSE Stock Performance Analyzer"
+category: "finance"
+subcategory: "investment-analysis"
+tags: ["stock-analysis", "nyse", "performance", "financial-metrics", "investment"]
+difficulty: "intermediate"
+author: "rajukandula4"
+version: "1.0"
+last_updated: "2025-07-19"
+mcp_compatible: true
+
+# Prompt Details
+description: |
+  Comprehensive prompt for analyzing NYSE-listed stock performance with 
+  focus on technical indicators, fundamental analysis, and investment insights.
+
+# The actual prompt
+prompt: |
+  You are a seasoned financial analyst specializing in NYSE-listed securities. 
+  Conduct a comprehensive stock performance analysis for the following company.
+
+  ## Analysis Framework
+
+  ### 1. **Company Overview**
+  - Business model and primary revenue streams
+  - Market position and competitive landscape
+  - Recent corporate developments or news
+
+  ### 2. **Technical Analysis**
+  - **Price Performance**: 1M, 3M, 6M, 1Y, 3Y trends
+  - **Key Technical Indicators**:
+    - Moving averages (20, 50, 200-day)
+    - RSI and momentum indicators
+    - Support and resistance levels
+    - Volume analysis
+  - **Chart patterns** and trend direction
+
+  ### 3. **Fundamental Analysis**
+  - **Valuation Metrics**:
+    - P/E ratio vs industry average
+    - Price-to-Book (P/B) ratio
+    - PEG ratio for growth assessment
+    - Enterprise Value ratios
+  - **Financial Health**:
+    - Revenue and earnings growth trends
+    - Profit margins and ROE
+    - Debt-to-equity ratio
+    - Cash flow analysis
+
+  ### 4. **Market Context**
+  - Sector performance comparison
+  - Market cap and liquidity analysis
+  - Analyst ratings and price targets
+  - Institutional ownership patterns
+
+  ### 5. **Risk Assessment**
+  - **Company-specific risks**: Regulatory, operational, financial
+  - **Market risks**: Sector volatility, economic sensitivity
+  - **Technical risks**: Overvaluation, momentum shifts
+  - Beta and volatility metrics
+
+  ### 6. **Investment Thesis**
+  - **Bull Case**: Key positive drivers and catalysts
+  - **Bear Case**: Primary concerns and headwinds
+  - **Price targets**: Conservative, base case, optimistic
+  - **Time horizon**: Short-term (3-6M) vs Long-term (1-3Y) outlook
+
+  ## Output Format
+  Structure your analysis as:
+  
+  📊 **EXECUTIVE SUMMARY**
+  - Current price and 1-year performance
+  - Overall rating (Strong Buy/Buy/Hold/Sell/Strong Sell)
+  - Key thesis in 2-3 sentences
+  
+  📈 **TECHNICAL OUTLOOK**
+  - Trend direction and momentum
+  - Key price levels to watch
+  - Volume and liquidity insights
+  
+  💰 **FUNDAMENTAL STRENGTH**
+  - Valuation assessment vs peers
+  - Financial health score
+  - Growth prospects
+  
+  ⚠️ **RISK FACTORS**
+  - Top 3 risks to monitor
+  - Volatility assessment
+  
+  🎯 **INVESTMENT RECOMMENDATION**
+  - Position sizing suggestion
+  - Entry/exit strategies
+  - Timeline and catalysts to watch
+  
+  ---
+  
+  **Stock to Analyze**: {{STOCK_TICKER}}
+  
+  Please provide current data where possible, and clearly note if using historical data or estimates.
+
+# Usage information
+usage_examples:
+  - "Analyze AAPL performance for portfolio decision"
+  - "Research potential investment in emerging NYSE stock"
+  - "Compare multiple stocks in same sector"
+  - "Create investment thesis for client presentation"
+
+variables:
+  - name: "STOCK_TICKER"
+    description: "NYSE stock ticker symbol (e.g., AAPL, MSFT, JPM)"
+    required: true
+    examples: ["AAPL", "TSLA", "JPM", "JNJ"]
+
+# Success metrics
+effectiveness_metrics:
+  - "Provides balanced bull/bear perspective"
+  - "Includes both technical and fundamental insights"
+  - "Actionable investment recommendations"
+  - "Appropriate risk assessment"
+  - "Clear, structured output format"
+
+# Related prompts
+related_prompts:
+  - "portfolio-optimization.yaml"
+  - "risk-assessment.yaml"
+  - "sector-comparison.yaml"
+  - "earnings-analysis.yaml"
+
+# Notes
+notes: |
+  - Always remind users to verify current market data
+  - Encourage consultation with financial advisors for significant investments
+  - Consider market conditions and individual risk tolerance
+  - This analysis is for educational/informational purposes only
