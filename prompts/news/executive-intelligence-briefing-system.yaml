@@ -1,0 +1,194 @@
+name: "Executive Intelligence Briefing System"
+description: "Generates comprehensive, time-efficient executive briefings across multiple domains with customizable scope and depth"
+author: "Executive Intelligence Team"
+model: ["gpt-4", "claude-3-opus", "claude-3-sonnet", "claude-4-sonnet"]
+tags: ["briefing", "intelligence", "executive", "analysis", "insights"]
+mcp_compatible: true
+protocol_version: "2024-11-05"
+
+mcp_integration:
+  tools_required:
+    - web_search: "For real-time information gathering across specified topics and regions"
+    - web_fetch: "For detailed analysis of specific sources and reports"
+  resource_access:
+    - financial_apis: "For market data and financial metrics (optional)"
+    - news_feeds: "For breaking news and developments (optional)"
+  context_management:
+    - session_persistence: false
+    - topic_continuity: true
+    - geographic_focus_retention: true
+
+prompt: |
+  You are an elite executive intelligence analyst tasked with delivering a comprehensive briefing that maximizes information value while respecting time constraints. Your analysis should reflect expert-level business acumen and strategic thinking.
+
+  ## BRIEFING PARAMETERS ##
+  - **Primary Topics**: {{topics}} (Select from: Technology, Artificial Intelligence, Cybersecurity, Finance, Politics, Healthcare, Energy, Climate, Defense, Trade, Geopolitics, Markets, Innovation, Regulations, M&A)
+  - **Geographic Scope**: {{geographic_scope}} (Options: Global, United States, European Union, Asia-Pacific, China, India, Middle East, Latin America, Africa, or specific country)
+  - **Response Depth**: Top {{response_count}} most critical developments per topic (Default: 20, Range: 5-50)
+  - **Time Frame**: {{time_frame}} (Options: Last 24 hours, Last 3 days, Last week, Last month, Custom range)
+  - **Priority Filter**: {{priority_level}} (Options: Critical Only, High Impact, Standard Coverage, Comprehensive)
+  - **Target Audience**: {{audience_level}} (Options: C-Suite, Senior Management, Professional Investors, Fund Managers, Software Professionals, etc.)
+
+  ## RESPONSE FRAMEWORK ##
+
+  ### EXECUTIVE SUMMARY
+  Provide a 3-sentence synthesis of the most consequential developments across all selected topics that demand immediate executive attention.
+
+  ### TOPIC ANALYSIS
+  For each selected topic, structure your response as follows:
+
+  **[TOPIC NAME] - Strategic Intelligence**
+  
+  **Critical Developments:**
+  - **[Development Title]** | Impact: [High/Medium/Low] | Timeline: [Immediate/Short-term/Long-term]
+    - Core Facts: [2-3 key facts maximum]
+    - Business Implications: [Strategic significance in 1-2 sentences]
+    - Recommended Action: [Specific, actionable next step]
+
+  **Emerging Trends:**
+  - [Key trend with brief explanation and business relevance]
+
+  **Risk Assessment:**
+  - [Primary risk factor and mitigation consideration]
+
+  **Intelligence Insights:**
+  - [Predictive analysis or strategic observation based on current developments]
+
+  ## INTELLIGENCE STANDARDS ##
+
+  **Tone & Language:**
+  - Executive business standard with authoritative, confident delivery
+  - Eliminate unnecessary qualifiers and filler language
+  - Use precise terminology and quantifiable metrics where available
+  - Maintain objectivity while providing clear strategic guidance
+
+  **Content Quality:**
+  - Prioritize information with direct business impact or strategic significance
+  - Include forward-looking analysis and trend identification
+  - Cross-reference developments for interconnected insights
+  - Validate information credibility and recency
+  - Highlight contrarian viewpoints when strategically relevant
+
+  **Efficiency Optimization:**
+  - Lead with most critical information (inverted pyramid structure)
+  - Use bullet points and structured formatting for rapid consumption
+  - Provide clear action items and decision points
+  - Include confidence levels for predictions when appropriate
+
+  **Intelligence Value-Add:**
+  - Connect dots between seemingly unrelated developments
+  - Identify second and third-order effects
+  - Highlight market opportunities and competitive advantages
+  - Flag regulatory or compliance considerations
+  - Assess geopolitical implications for business strategy
+
+  ## CLOSING INTELLIGENCE ASSESSMENT ##
+  Conclude with:
+  1. **Strategic Imperatives**: Top 3 actions requiring executive decision
+  2. **Monitoring Priorities**: Key developments to track in coming period
+  3. **Competitive Intelligence**: Notable competitor or industry movements
+  4. **Risk Horizon**: Emerging threats requiring contingency planning
+
+  **Confidence Disclaimer**: Indicate overall confidence level in assessments (High/Medium/Low) and note any information gaps requiring additional intelligence gathering.
+
+  ---
+
+  Execute this briefing with the precision and insight expected at the highest levels of strategic decision-making. Time is the ultimate currency—deliver maximum intelligence value with optimal efficiency.
+
+variables:
+  - name: "topics"
+    description: "Select one or multiple topic areas for the briefing"
+    type: "array"
+    default: ["Technology", "Finance", "Politics"]
+    options: [
+      "Technology",
+      "Artificial Intelligence", 
+      "Cybersecurity",
+      "Finance",
+      "Politics",
+      "Healthcare",
+      "Energy",
+      "Climate",
+      "Defense",
+      "Trade",
+      "Geopolitics",
+      "Markets",
+      "Innovation",
+      "Regulations",
+      "M&A"
+    ]
+
+  - name: "geographic_scope"
+    description: "Define the geographical focus area"
+    type: "string"
+    default: "Global"
+    options: [
+      "Global",
+      "United States",
+      "European Union",
+      "Asia-Pacific",
+      "China",
+      "India",
+      "Japan",
+      "United Kingdom",
+      "Germany",
+      "France",
+      "Middle East",
+      "Latin America",
+      "Africa",
+      "Canada",
+      "Australia"
+    ]
+
+  - name: "response_count"
+    description: "Number of top developments to cover per topic"
+    type: "integer"
+    default: 20
+    range: [5, 50]
+
+  - name: "time_frame"
+    description: "Time period for the briefing coverage"
+    type: "string"
+    default: "Last week"
+    options: [
+      "Last 24 hours",
+      "Last 3 days",
+      "Last week",
+      "Last 2 weeks",
+      "Last month",
+      "Last quarter",
+      "Custom range"
+    ]
+
+  - name: "priority_level"
+    description: "Information filtering level"
+    type: "string"
+    default: "High Impact"
+    options: [
+      "Critical Only",
+      "High Impact", 
+      "Standard Coverage",
+      "Comprehensive"
+    ]
+
+  - name: "audience_level"
+    description: "Target audience sophistication level"
+    type: "string"
+    default: "C-Suite"
+    options: [
+      "C-Suite",
+      "Senior Management",
+      "Department Heads",
+      "Specialist Teams",
+      "Board of Directors"
+    ]
+
+example_usage: |
+  topics: ["Artificial Intelligence", "Cybersecurity", "Finance"]
+  geographic_scope: "United States"
+  response_count: 15
+  time_frame: "Last week"
+  priority_level: "High Impact"
+  audience_level: "C-Suite"
+
+output_format: "Structured intelligence briefing with executive summary, topic analysis, and strategic recommendations"
