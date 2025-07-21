@@ -1,6 +1,6 @@
 name: "Executive Intelligence Briefing System"
 description: "Generates comprehensive, time-efficient executive briefings across multiple domains with customizable scope and depth"
-author: "Executive Intelligence Team"
+author: "rajukandula4"
 model: ["gpt-4", "claude-3-opus", "claude-3-sonnet", "claude-4-sonnet"]
 tags: ["briefing", "intelligence", "executive", "analysis", "insights"]
 mcp_compatible: true
