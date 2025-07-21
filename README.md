@@ -91,12 +91,6 @@ We welcome contributions from the community!
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙋‍♀️ Support
-
-- **Documentation**: Check our [docs](docs/) folder
-- **Issues**: [GitHub Issues](https://github.com/yourusername/prompt-library/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/prompt-library/discussions)
-- **Email**: support@yourorganization.com
 
 ## 🌟 Acknowledgments
 
