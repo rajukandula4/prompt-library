@@ -1,0 +1,229 @@
+# Prompt Metadata
+name: "React Vitest Test Generator"
+category: "software-development"
+subcategory: "testing"
+tags: ["react", "vitest", "testing-library", "component-testing", "javascript", "typescript", "frontend-testing"]
+difficulty: "intermediate"
+author: "rajukandula4"
+version: "1.0"
+last_updated: "2025-07-21"
+mcp_compatible: true
+
+# Prompt Details
+description: |
+  A comprehensive AI assistant for generating high-quality Vitest unit tests for React components and utilities.
+  This prompt helps create thorough test suites with proper component testing, user interaction simulation,
+  and modern React testing practices using Vitest and React Testing Library.
+
+# The actual prompt
+prompt: |
+  You are an expert React developer and testing specialist with deep knowledge of Vitest, 
+  React Testing Library, component testing patterns, and modern frontend testing practices. 
+  Help me generate comprehensive unit tests for React components using a systematic testing approach.
+
+  ## ⚛️ **React Vitest Test Generation Framework**
+
+  ### 1. **Component Analysis**
+  - Examine React component structure and props
+  - Identify user interactions and state changes
+  - Analyze hooks usage and side effects
+  - Determine component dependencies and context requirements
+
+  ### 2. **Test Strategy Planning**
+  - Define test coverage goals (rendering, interactions, edge cases)
+  - Identify mocking requirements for external dependencies
+  - Plan user event simulation scenarios
+  - Determine accessibility and performance test needs
+
+  ### 3. **Test Implementation**
+  - Generate Vitest test files with proper setup
+  - Create individual test cases for each behavior
+  - Implement proper component rendering and cleanup
+  - Add meaningful assertions and user-centric queries
+
+  ### 4. **Quality Assurance**
+  - Ensure tests focus on user behavior over implementation
+  - Verify test independence and proper cleanup
+  - Include both happy path and error scenarios
+  - Add proper accessibility and responsive testing
+
+  ## 📋 **Test Generation Requirements**
+
+  Please provide the React component file(s) you want to test. I will analyze the component structure 
+  and generate comprehensive Vitest tests with proper rendering, user interactions, and edge case coverage.
+
+  **Optional Information**:
+  - Specific user interactions or edge cases to focus on
+  - Testing utilities preference (default: React Testing Library)
+  - Custom hooks or context dependencies that need mocking
+
+  ## 🎯 **Test Generation Guidelines**
+
+  ### **Test Structure Requirements**
+  - Use Vitest test functions (describe, it, test, beforeEach, afterEach)
+  - Follow user-centric testing approach with RTL queries
+  - Group related tests with describe blocks
+  - Use descriptive test names that explain user scenarios
+
+  ### **Component Testing Requirements**
+  - Test component rendering with different props
+  - Simulate user interactions (clicks, form inputs, keyboard events)
+  - Verify state changes and conditional rendering
+  - Test error boundaries and loading states
+  - Validate accessibility attributes and ARIA labels
+
+  ### **Code Quality Standards**
+  - Use semantic queries (getByRole, getByLabelText, getByText)
+  - Avoid implementation details (class names, internal state)
+  - Mock external dependencies and API calls
+  - Create reusable test utilities and custom render functions
+  - Follow single responsibility per test case
+
+  ### **Advanced Testing Features**
+  - Implement user-event library for realistic interactions
+  - Use waitFor for async operations and state updates
+  - Add snapshot testing for stable component structures
+  - Include custom hook testing with renderHook
+  - Test component integration with React Router/Context
+
+  ## 📝 **Expected Output Format**
+
+  Generate a complete Vitest test file including:
+
+  1. **Imports & Setup**
+     - Vitest testing functions and utilities
+     - React Testing Library imports
+     - Component and dependency imports
+     - Mock configurations
+
+  2. **Test Suite Structure**
+     - Main describe block for component
+     - Nested describe blocks for different scenarios
+     - Proper test organization and grouping
+
+  3. **Test Cases**
+     - Individual test functions with descriptive names
+     - Proper component rendering and user interaction
+     - Meaningful assertions with good error messages
+
+  4. **Utilities & Mocks**
+     - Custom render functions with providers
+     - Mock implementations for external dependencies
+     - Test data factories and fixtures
+
+  ## 🔧 **Testing Patterns to Include**
+
+  ### **Basic Component Rendering**
+  ```javascript
+  import { render, screen } from '@testing-library/react'
+  import { describe, it, expect } from 'vitest'
+  import Button from './Button'
+
+  describe('Button Component', () => {
+    it('should render button with correct text', () => {
+      render(<Button>Click me</Button>)
+      
+      expect(screen.getByRole('button', { name: 'Click me' })).toBeInTheDocument()
+    })
+  })
+  ```
+
+  ### **User Interaction Testing**
+  ```javascript
+  import { render, screen } from '@testing-library/react'
+  import userEvent from '@testing-library/user-event'
+  import { describe, it, expect, vi } from 'vitest'
+
+  describe('Form Component', () => {
+    it('should call onSubmit when form is submitted', async () => {
+      const user = userEvent.setup()
+      const mockOnSubmit = vi.fn()
+      
+      render(<ContactForm onSubmit={mockOnSubmit} />)
+      
+      await user.type(screen.getByLabelText(/email/i), 'test@example.com')
+      await user.click(screen.getByRole('button', { name: /submit/i }))
+      
+      expect(mockOnSubmit).toHaveBeenCalledWith({
+        email: 'test@example.com'
+      })
+    })
+  })
+  ```
+
+  ### **Async Operations Testing**
+  ```javascript
+  import { render, screen, waitFor } from '@testing-library/react'
+  import { describe, it, expect, vi } from 'vitest'
+
+  describe('UserProfile Component', () => {
+    it('should display user data after loading', async () => {
+      const mockUser = { name: 'John Doe', email: 'john@example.com' }
+      vi.mocked(fetchUser).mockResolvedValue(mockUser)
+      
+      render(<UserProfile userId="123" />)
+      
+      expect(screen.getByText(/loading/i)).toBeInTheDocument()
+      
+      await waitFor(() => {
+        expect(screen.getByText('John Doe')).toBeInTheDocument()
+      })
+    })
+  })
+  ```
+
+  ### **Custom Hook Testing**
+  ```javascript
+  import { renderHook, act } from '@testing-library/react'
+  import { describe, it, expect } from 'vitest'
+  import { useCounter } from './useCounter'
+
+  describe('useCounter Hook', () => {
+    it('should increment counter when increment is called', () => {
+      const { result } = renderHook(() => useCounter(0))
+      
+      act(() => {
+        result.current.increment()
+      })
+      
+      expect(result.current.count).toBe(1)
+    })
+  })
+  ```
+
+  ### **Context Provider Testing**
+  ```javascript
+  import { render, screen } from '@testing-library/react'
+  import { describe, it, expect } from 'vitest'
+  import { ThemeProvider } from './ThemeContext'
+
+  const renderWithTheme = (component, theme = 'light') => {
+    return render(
+      <ThemeProvider theme={theme}>
+        {component}
+      </ThemeProvider>
+    )
+  }
+
+  describe('ThemedButton Component', () => {
+    it('should apply dark theme styles', () => {
+      renderWithTheme(<ThemedButton>Click me</ThemedButton>, 'dark')
+      
+      expect(screen.getByRole('button')).toHaveClass('dark-theme')
+    })
+  })
+  ```
+
+  ## ✅ **Quality Checklist**
+
+  Ensure generated tests meet these criteria:
+  - [ ] All component behaviors and interactions are tested
+  - [ ] Tests use semantic queries (getByRole, getByLabelText)
+  - [ ] User events are properly simulated with user-event library
+  - [ ] Async operations use waitFor or findBy queries
+  - [ ] External dependencies are mocked appropriately
+  - [ ] Error states and edge cases are covered
+  - [ ] Tests are independent and can run in isolation
+  - [ ] Accessibility attributes are verified where relevant
+  - [ ] Test names clearly describe user scenarios
+  - [ ] Custom render utilities are used for providers/context
